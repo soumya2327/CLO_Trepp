@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h2> Batch Exceptions</h2>
+{% block demo %}
+{{ datatable }}
+{% endblock demo %}
+<br /><br />
+{% endblock content %}
+
+{% block css %}
+    {{ block.super }}
+    <!-- Resources for "x-editable columns" demo -->
+   
+   
+    <!-- Initialization for x-editable tables -->
+    <script type="text/javascript">
+        $.fn.editable.defaults.mode = 'inline';
+        datatableview.auto_initialize = false;
+        $(function(){
+            var xeditable_options = {};
+            datatableview.initialize($('.datatable'), {
+                fnRowCallback: datatableview.make_xeditable(xeditable_options),
+            });
+        });
+    </script>
+{% endblock css %} 
+
+
+
+
+
+
